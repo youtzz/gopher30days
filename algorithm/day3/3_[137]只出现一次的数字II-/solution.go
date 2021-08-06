@@ -15,7 +15,7 @@ func singleNumber(nums []int) int {
 }
 
 // best solution
-func singleNumber_1(nums []int) int {
+func singleNumber_best(nums []int) int {
 	var rst int32
 	for i := 0; i < 32; i++ {
 		var total int32
