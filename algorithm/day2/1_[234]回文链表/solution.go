@@ -38,3 +38,43 @@ func isPalindrome(head *ListNode) bool {
 
 	return true
 }
+
+// best solution
+func isPalindrome_best(head *ListNode) bool {
+	firstHalf := endOfFirstHalf(head) // 快慢指针找链表中点
+	secondHalf := reverse(firstHalf)  // 链表逆置
+
+	res := true
+	p1, p2 := head, secondHalf
+	for p2 != nil {
+		if p1.Val != p2.Val {
+			res = false
+			break
+		}
+		p1, p2 = p1.Next, p2.Next
+	}
+
+	firstHalf.Next = endOfFirstHalf(secondHalf) // 链表逆置回来
+	return res
+}
+
+func reverse(head *ListNode) *ListNode {
+	var prev *ListNode
+	cur := head
+	for cur != nil {
+		next := cur.Next
+		cur.Next = prev
+		prev = cur
+		cur = next
+	}
+	return prev
+}
+
+func endOfFirstHalf(head *ListNode) *ListNode {
+	slow, fast := head, head
+	for fast != nil && fast.Next != nil {
+		fast = fast.Next.Next
+		slow = slow.Next
+	}
+	return slow
+}

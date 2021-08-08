@@ -1,5 +1,11 @@
 package algorithm
 
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
+
 // -----------------链表
 
 type LinkList *ListNode
@@ -36,6 +42,22 @@ func CompareLinkList(l1, l2 *ListNode) bool {
 	return rst
 }
 
+func PrintLinkList(head *ListNode) {
+	var stack []int
+	for head != nil {
+		stack = append(stack, head.Val)
+	}
+
+	var sb strings.Builder
+	sb.Grow(len(stack))
+	for _, v := range stack {
+		sb.WriteString(strconv.Itoa(v))
+		sb.WriteString(" -> ")
+	}
+	sb.WriteString("nil")
+	fmt.Println(sb.String())
+}
+
 // -----------------树
 
 type Tree *TreeNode
@@ -45,4 +67,3 @@ type TreeNode struct {
 	Left  *TreeNode
 	Right *TreeNode
 }
-

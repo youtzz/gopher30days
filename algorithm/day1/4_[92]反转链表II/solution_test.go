@@ -7,12 +7,12 @@ import (
 )
 
 func Test_deleteDuplicates(t *testing.T) {
-	 testcase := []struct {
-		Input *ListNode
+	testcase := []struct {
+		Input  *ListNode
 		Output *ListNode
-	} {
-	 	{},
-	 }
+	}{
+		{},
+	}
 
 	for _, v := range testcase {
 		if !CompareLinkList(deleteDuplicates(v.Input), v.Output) {

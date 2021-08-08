@@ -22,4 +22,3 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	}
 	return preHead.Next
 }
-
