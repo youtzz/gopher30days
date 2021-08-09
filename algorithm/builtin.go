@@ -43,19 +43,25 @@ func CompareLinkList(l1, l2 *ListNode) bool {
 }
 
 func PrintLinkList(head *ListNode) {
+	fmt.Println(getFormatLinkListString(head))
+}
+
+func getFormatLinkListString(head *ListNode) string {
 	var stack []int
 	for head != nil {
 		stack = append(stack, head.Val)
+		head = head.Next
 	}
 
 	var sb strings.Builder
 	sb.Grow(len(stack))
+	sb.WriteString("{ ")
 	for _, v := range stack {
 		sb.WriteString(strconv.Itoa(v))
 		sb.WriteString(" -> ")
 	}
-	sb.WriteString("nil")
-	fmt.Println(sb.String())
+	sb.WriteString("nil }")
+	return sb.String()
 }
 
 // -----------------树
