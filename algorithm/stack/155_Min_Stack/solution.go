@@ -1,4 +1,4 @@
-package main
+package minStack
 
 // first solution
 type MinStack struct {

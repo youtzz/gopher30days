@@ -1,4 +1,4 @@
-package main
+package reversebits
 
 // first solution
 func reverseBits(num uint32) uint32 {

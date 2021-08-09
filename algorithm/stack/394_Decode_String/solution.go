@@ -1,4 +1,4 @@
-package main
+package decodeString
 
 import . "github.com/sevenger/gopher30days/algorithm"
 

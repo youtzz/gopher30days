@@ -1,4 +1,4 @@
-package main
+package bitwiseandofnumbersrange
 
 // best solution
 func rangeBitwiseAnd(left int, right int) int {

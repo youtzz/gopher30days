@@ -1,4 +1,4 @@
-package main
+package partitionList
 
 import . "github.com/sevenger/gopher30days/algorithm"
 

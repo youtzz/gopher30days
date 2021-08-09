@@ -1,4 +1,4 @@
-package main
+package searcha2dmatrix
 
 import "sort"
 

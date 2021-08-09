@@ -1,4 +1,4 @@
-package main
+package singlenumberii
 
 // first solution
 func singleNumber(nums []int) int {

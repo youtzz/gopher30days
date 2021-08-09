@@ -1,4 +1,4 @@
-package binarysearch
+package searchrange
 
 // first solution
 func searchRange(nums []int, target int) []int {

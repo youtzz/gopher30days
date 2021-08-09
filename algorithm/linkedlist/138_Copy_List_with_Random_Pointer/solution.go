@@ -1,4 +1,4 @@
-package main
+package copyListWithRandomPointer
 
 type Node struct {
 	Val    int

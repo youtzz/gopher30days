@@ -1,4 +1,4 @@
-package main
+package numberof1bits
 
 // first solution
 func hammingWeight(num uint32) int {

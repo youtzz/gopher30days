@@ -1,4 +1,4 @@
-package main
+package countingbits
 
 // first solution
 func countBits(n int) []int {

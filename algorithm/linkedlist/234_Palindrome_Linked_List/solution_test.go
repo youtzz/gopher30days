@@ -1,4 +1,4 @@
-package main
+package palindromeLinkedList
 
 import (
 	"github.com/sevenger/gopher30days/algorithm"

@@ -1,4 +1,4 @@
-package main
+package searcha2dmatrix
 
 import (
 	. "github.com/sevenger/gopher30days/algorithm"
