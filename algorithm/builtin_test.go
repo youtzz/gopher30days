@@ -96,3 +96,71 @@ func Test_getFormatLinkListString(t *testing.T) {
 		})
 	}
 }
+
+func Test_NewMatrix(t *testing.T) {
+	type args struct {
+		args [][]int
+	}
+	tests := []struct {
+		name string
+		args args
+		want [][]int
+	}{
+		{
+			name: "1",
+			args: args{
+				args: [][]int{
+					{1, 3, 5, 7},
+					{10, 11, 16, 20},
+					{23, 30, 34, 60},
+				},
+			},
+			want: [][]int{
+				{1, 3, 5, 7},
+				{10, 11, 16, 20},
+				{23, 30, 34, 60},
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := NewMatrix(tt.args.args...); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("NewMatrix() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestNewMatrixByRowLen(t *testing.T) {
+	type args struct {
+		rowLen int
+		args   []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want [][]int
+	}{
+		{
+			name: "1",
+			args: args{
+				rowLen: 4,
+				args: []int{1, 3, 5, 7,
+					10, 11, 16, 20,
+					23, 30, 34, 60},
+			},
+			want: [][]int{
+				{1, 3, 5, 7},
+				{10, 11, 16, 20},
+				{23, 30, 34, 60},
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := NewMatrixByRowLen(tt.args.rowLen, tt.args.args...); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("NewMatrixByRowLen() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

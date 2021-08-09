@@ -1,3 +1,4 @@
+// Package algorithm 定义基础的数据结构类型，并与LeetCode中的保持一致
 package algorithm
 
 import (
@@ -72,4 +73,40 @@ type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
+}
+
+// -----------------矩阵
+
+type Matrix [][]int
+type Row []int
+
+func NewMatrix(args ...[]int) [][]int {
+	matrix := make([][]int, len(args))
+	for i, arg := range args {
+		matrix[i] = arg
+		//for _, v := range arg {
+		//	matrix[i] = append(matrix[i], v)
+		//}
+	}
+	return matrix
+}
+
+func NewMatrixByRowLen(rowLen int, args ...int) [][]int {
+	colCount := len(args) / rowLen
+	matrix := make([][]int, colCount)
+
+	for i := 0; i < colCount; i++ {
+		for j := 0; j < rowLen; j++ {
+			matrix[i] = append(matrix[i], args[j+(rowLen*i)])
+		}
+	}
+	return matrix
+}
+
+func NewRow(args ...int) []int {
+	row := make([]int, 0, len(args))
+	for _, v := range args {
+		row = append(row, v)
+	}
+	return row
 }
