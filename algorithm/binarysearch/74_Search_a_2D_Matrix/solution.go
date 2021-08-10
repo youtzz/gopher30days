@@ -12,18 +12,6 @@ func searchMatrix(matrix [][]int, target int) bool {
 // best solution
 func searchMatrix_best(matrix [][]int, target int) bool {
 	m, n := len(matrix[0]), len(matrix)
-	left, right := 0, m*n-1
-	for left <= right {
-		mid := (right-left)>>1 + left
-		num := matrix[mid/m][mid%m]
-		if num == target {
-			return true
-		} else if num > target {
-			right = mid - 1
-		} else {
-			left = mid + 1
-		}
-	}
-
-	return false
+	index := sort.Search(m*n, func(i int) bool { return matrix[i/m][i%m] >= target })
+	return index < m*n && matrix[index/m][index%m] == target
 }
