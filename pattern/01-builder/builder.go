@@ -1,4 +1,4 @@
-package builder
+package _1_builder
 
 type Builder interface {
 	BuildHead(string)

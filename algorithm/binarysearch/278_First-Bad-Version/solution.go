@@ -23,9 +23,10 @@ func firstBadVersion_best(n int) int {
 	})
 }
 
-func isBadVersion(n int) (res bool) {
-	if n >= 5 {
-		res = true
+func isBadVersion(n int) bool {
+	if n >= 4 {
+		return true
+	} else {
+		return false
 	}
-	return
 }

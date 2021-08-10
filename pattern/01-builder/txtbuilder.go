@@ -1,4 +1,4 @@
-package builder
+package _1_builder
 
 type TxtBuilder struct {
 	content string
