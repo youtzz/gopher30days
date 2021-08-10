@@ -1,10 +1,10 @@
 ## 题目编号·题目名称
 
-题目链接：...something
+题目链接：something
 
 ### 描述
 
-...something
+something
 
 ### 样例
 
@@ -23,4 +23,4 @@
 
 ## 解题心得
 
-...something
+something
