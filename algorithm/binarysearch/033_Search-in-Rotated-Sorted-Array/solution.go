@@ -16,7 +16,7 @@ func search(nums []int, target int) int {
 				left = mid + 1
 			}
 		} else {
-			// 有半边是有序的
+			// 右半边是有序的
 			if nums[right] >= target && nums[mid] <= target {
 				left = mid + 1
 			} else {
