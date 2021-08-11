@@ -20,10 +20,12 @@ func NewPool(count int) Pool {
 	return pool
 }
 
+// Get 从池中获取对象
 func (p Pool) Get() *Object {
 	return <-p
 }
 
+// Put 把对象返还给池
 func (p Pool) Put(obj *Object) {
 	p <- obj
 }
