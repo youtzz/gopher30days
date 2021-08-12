@@ -8,6 +8,8 @@ import (
 	"strings"
 )
 
+// ---------------------------------线性表---------------------------------
+
 type Slice []int
 
 func NewSlice(args ...int) Slice {
@@ -18,7 +20,7 @@ func NewSlice(args ...int) Slice {
 	return s
 }
 
-// -----------------链表
+// ----------------------------------链表----------------------------------
 
 type LinkedList *ListNode
 
@@ -74,7 +76,7 @@ func getFormatLinkedListString(head *ListNode) string {
 	return sb.String()
 }
 
-// -----------------树
+// -----------------------------------树-----------------------------------
 
 type Tree *TreeNode
 
@@ -194,7 +196,7 @@ func PrintTree(root *TreeNode) {
 	fmt.Print(sb.String())
 }
 
-// -----------------矩阵
+// ----------------------------------矩阵----------------------------------
 
 type Matrix [][]int
 type Row []int
