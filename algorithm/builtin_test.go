@@ -27,8 +27,8 @@ func Test_NewLinkList(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := NewLinkList(tt.args.arg); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("NewLinkList() = %v, want %v", got, tt.want)
+			if got := NewLinkedList(tt.args.arg); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("NewLinkedList() = %v, want %v", got, tt.want)
 			}
 		})
 	}
@@ -44,15 +44,15 @@ func Test_CompareLinkList(t *testing.T) {
 		args args
 		want bool
 	}{
-		{"equal", args{l1: NewLinkList([]int{1, 2, 3}), l2: NewLinkList([]int{1, 2, 3})}, true},
+		{"equal", args{l1: NewLinkedList([]int{1, 2, 3}), l2: NewLinkedList([]int{1, 2, 3})}, true},
 		{"equal", args{l1: nil, l2: nil}, true},
-		{"not equal", args{l1: NewLinkList([]int{1, 2, 3, 4}), l2: NewLinkList([]int{1, 2, 3})}, false},
-		{"not equal", args{l1: NewLinkList([]int{1, 2, 3, 4}), l2: nil}, false},
+		{"not equal", args{l1: NewLinkedList([]int{1, 2, 3, 4}), l2: NewLinkedList([]int{1, 2, 3})}, false},
+		{"not equal", args{l1: NewLinkedList([]int{1, 2, 3, 4}), l2: nil}, false},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := CompareLinkList(tt.args.l1, tt.args.l2); got != tt.want {
-				t.Errorf("CompareLinkList() = %v, want %v", got, tt.want)
+			if got := CompareLinkedList(tt.args.l1, tt.args.l2); got != tt.want {
+				t.Errorf("CompareLinkedList() = %v, want %v", got, tt.want)
 			}
 		})
 	}
@@ -66,12 +66,12 @@ func Test_PrintLinkList(t *testing.T) {
 		name string
 		args args
 	}{
-		{"1", args{head: NewLinkList([]int{1, 2, 3, 4, 5})}},
-		{"2", args{head: NewLinkList(nil)}},
+		{"1", args{head: NewLinkedList([]int{1, 2, 3, 4, 5})}},
+		{"2", args{head: NewLinkedList(nil)}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			PrintLinkList(tt.args.head)
+			PrintLinkedList(tt.args.head)
 		})
 	}
 }
@@ -85,13 +85,13 @@ func Test_getFormatLinkListString(t *testing.T) {
 		args args
 		want string
 	}{
-		{"1", args{head: NewLinkList([]int{1, 2, 3, 4})}, "{ 1 -> 2 -> 3 -> 4 -> nil }"},
-		{"2", args{head: NewLinkList(nil)}, "{ nil }"},
+		{"1", args{head: NewLinkedList([]int{1, 2, 3, 4})}, "{ 1 -> 2 -> 3 -> 4 -> nil }"},
+		{"2", args{head: NewLinkedList(nil)}, "{ nil }"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := getFormatLinkListString(tt.args.head); got != tt.want {
-				t.Errorf("getFormatLinkListString() = %v, want %v", got, tt.want)
+			if got := getFormatLinkedListString(tt.args.head); got != tt.want {
+				t.Errorf("getFormatLinkedListString() = %v, want %v", got, tt.want)
 			}
 		})
 	}

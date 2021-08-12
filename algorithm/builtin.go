@@ -7,16 +7,26 @@ import (
 	"strings"
 )
 
+type Slice []int
+
+func NewSlice(args ...int) Slice {
+	s := make(Slice, len(args))
+	for i, v := range args {
+		s[i] = v
+	}
+	return s
+}
+
 // -----------------链表
 
-type LinkList *ListNode
+type LinkedList *ListNode
 
 type ListNode struct {
 	Val  int
 	Next *ListNode
 }
 
-func NewLinkList(arg []int) *ListNode {
+func NewLinkedList(arg []int) *ListNode {
 	dummy := &ListNode{}
 	cur := dummy
 	for _, v := range arg {
@@ -26,28 +36,26 @@ func NewLinkList(arg []int) *ListNode {
 	return dummy.Next
 }
 
-func CompareLinkList(l1, l2 *ListNode) bool {
-	rst := true
+func CompareLinkedList(l1, l2 *ListNode) bool {
 	for l1 != nil && l2 != nil {
 		if l1.Val != l2.Val {
-			rst = false
-			break
+			return false
 		}
 		l1 = l1.Next
 		l2 = l2.Next
 	}
 	if l1 != nil || l2 != nil {
-		rst = false
+		return false
 	}
 
-	return rst
+	return true
 }
 
-func PrintLinkList(head *ListNode) {
-	fmt.Println(getFormatLinkListString(head))
+func PrintLinkedList(head *ListNode) {
+	fmt.Println(getFormatLinkedListString(head))
 }
 
-func getFormatLinkListString(head *ListNode) string {
+func getFormatLinkedListString(head *ListNode) string {
 	var stack []int
 	for head != nil {
 		stack = append(stack, head.Val)

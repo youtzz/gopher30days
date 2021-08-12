@@ -16,7 +16,7 @@ func Test_isPalindrome_best(t *testing.T) {
 	}{
 		{
 			name: "",
-			args: args{algorithm.NewLinkList([]int{1, 2, 2, 1})},
+			args: args{algorithm.NewLinkedList([]int{1, 2, 2, 1})},
 			want: true,
 		},
 	}

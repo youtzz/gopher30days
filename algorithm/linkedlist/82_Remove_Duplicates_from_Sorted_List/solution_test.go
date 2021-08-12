@@ -14,7 +14,7 @@ func Test_deleteDuplicates(t *testing.T) {
 	}
 
 	for _, v := range testcase {
-		if !CompareLinkList(deleteDuplicates(v.Input), v.Output) {
+		if !CompareLinkedList(deleteDuplicates(v.Input), v.Output) {
 			t.Fatalf("%dbfs %dbfs")
 		}
 	}
