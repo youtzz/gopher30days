@@ -3,6 +3,7 @@ package algorithm
 
 import (
 	"fmt"
+	"math"
 	"reflect"
 	"strconv"
 	"strings"
@@ -93,7 +94,14 @@ func NewBinaryTree(args []int) *TreeNode {
 	}
 	nodes := make([]*TreeNode, len(args))
 	for i, v := range args {
-		nodes[i] = &TreeNode{Val: v}
+		var node *TreeNode
+		// 传math.MaxInt64默认是空节点
+		if v == math.MaxInt64 {
+			node = nil
+		} else {
+			node = &TreeNode{Val: v}
+		}
+		nodes[i] = node
 	}
 	root, nodes := nodes[0], nodes[1:]
 
@@ -113,7 +121,9 @@ func NewBinaryTree(args []int) *TreeNode {
 			stack = append(stack, nodes[0])
 			nodes = nodes[1:]
 		}
-		node.Left, node.Right = left, right
+		if node != nil {
+			node.Left, node.Right = left, right
+		}
 	}
 	return root
 }
