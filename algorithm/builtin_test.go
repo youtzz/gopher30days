@@ -164,3 +164,132 @@ func TestNewMatrixByRowLen(t *testing.T) {
 		})
 	}
 }
+
+func TestNewBinaryTree(t *testing.T) {
+	type args struct {
+		source []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want *TreeNode
+	}{
+		{
+			name: "testcase 1",
+			args: args{
+				source: []int{1, 2, 3},
+			},
+			want: &TreeNode{
+				Val: 1,
+				Left: &TreeNode{
+					Val:   2,
+					Left:  nil,
+					Right: nil,
+				},
+				Right: &TreeNode{
+					Val:   3,
+					Left:  nil,
+					Right: nil,
+				},
+			},
+		},
+		{
+			name: "testcase 2",
+			args: args{
+				source: nil,
+			},
+			want: nil,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := NewBinaryTree(tt.args.source); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("NewBinaryTree() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestCompareBinaryTree(t *testing.T) {
+	type args struct {
+		root1 *TreeNode
+		root2 *TreeNode
+	}
+	tests := []struct {
+		name string
+		args args
+		want bool
+	}{
+		{
+			name: "testcase 1",
+			args: args{
+				root1: &TreeNode{
+					Val: 0,
+					Left: &TreeNode{
+						Val: 1,
+					},
+					Right: &TreeNode{
+						Val: 2,
+					},
+				},
+				root2: &TreeNode{
+					Val: 0,
+					Left: &TreeNode{
+						Val: 1,
+					},
+					Right: &TreeNode{
+						Val: 2,
+					},
+				},
+			},
+			want: true,
+		},
+		{
+			name: "testcase 2",
+			args: args{
+				root1: &TreeNode{
+					Val:   0,
+					Left:  nil,
+					Right: nil,
+				},
+				root2: nil,
+			},
+			want: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := CompareBinaryTree(tt.args.root1, tt.args.root2); got != tt.want {
+				t.Errorf("CompareBinaryTree() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPrintTree(t *testing.T) {
+	type args struct {
+		root *TreeNode
+	}
+	tests := []struct {
+		name string
+		args args
+	}{
+		{
+			name: "testcase 1",
+			args: args{
+				root: NewBinaryTree([]int{1, 2, 3, 4, 5, 6, 7}),
+			},
+		},
+		{
+			name: "testcase 2",
+			args: args{
+				root: NewBinaryTree([]int{}),
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			PrintTree(tt.args.root)
+		})
+	}
+}

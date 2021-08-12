@@ -3,6 +3,7 @@ package algorithm
 
 import (
 	"fmt"
+	"reflect"
 	"strconv"
 	"strings"
 )
@@ -83,6 +84,116 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+// NewBinaryTree 使用层先法创建二叉树
+func NewBinaryTree(args []int) *TreeNode {
+	if args == nil || len(args) == 0 {
+		return nil
+	}
+	nodes := make([]*TreeNode, len(args))
+	for i, v := range args {
+		nodes[i] = &TreeNode{Val: v}
+	}
+	root, nodes := nodes[0], nodes[1:]
+
+	stack := []*TreeNode{root}
+
+	var node *TreeNode
+	for len(stack) != 0 && len(nodes) != 0 {
+		node, stack = stack[0], stack[1:]
+		var left, right *TreeNode
+		if len(nodes) != 0 {
+			left = nodes[0]
+			stack = append(stack, nodes[0])
+			nodes = nodes[1:]
+		}
+		if len(nodes) != 0 {
+			right = nodes[0]
+			stack = append(stack, nodes[0])
+			nodes = nodes[1:]
+		}
+		node.Left, node.Right = left, right
+	}
+	return root
+}
+
+func CompareBinaryTree(root1, root2 *TreeNode) bool {
+	// 使用先序遍历+中序遍历确定两颗树相同
+	return reflect.DeepEqual(PreOrder(root1), PreOrder(root2)) &&
+		reflect.DeepEqual(InOrder(root1), InOrder(root2))
+
+	// 其实直接DeepEqual就可以了
+	//return reflect.DeepEqual(root1, root2)
+}
+
+// PreOrder 先序非递归遍历
+func PreOrder(root *TreeNode) []int {
+	var stack []*TreeNode
+	var res []int
+	for root != nil || len(stack) > 0 {
+		for root != nil {
+			res = append(res, root.Val)
+			stack = append(stack, root)
+			root = root.Left
+		}
+		node := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		root = node.Right
+	}
+	return res
+}
+
+// InOrder 中序非递归遍历
+func InOrder(root *TreeNode) []int {
+	var stack []*TreeNode
+	var res []int
+
+	for root != nil && len(stack) > 0 {
+		for root != nil {
+			stack = append(stack, root)
+			root = root.Left
+		}
+		node := stack[len(stack)-1]
+		res = append(res, node.Val)
+		root = node.Right
+	}
+	return res
+}
+
+// PostOrder 后序非递归遍历
+func PostOrder(root *TreeNode) []int {
+	return nil
+}
+
+// PrintTree 使用层先法打印树
+func PrintTree(root *TreeNode) {
+	if root == nil {
+		fmt.Println("{ Empty Tree }")
+		return
+	}
+	stack := []*TreeNode{root}
+	var tmpStack []*TreeNode
+	var sb strings.Builder
+
+	var node *TreeNode
+	for len(stack) > 0 {
+		for len(stack) > 0 {
+			node, stack = stack[0], stack[1:]
+			sb.WriteString(strconv.Itoa(node.Val))
+			sb.WriteString(" ")
+			if node.Left != nil {
+				tmpStack = append(tmpStack, node.Left)
+			}
+			if node.Right != nil {
+				tmpStack = append(tmpStack, node.Right)
+			}
+		}
+		sb.WriteString("\n")
+		stack = tmpStack
+		tmpStack = tmpStack[len(tmpStack):]
+	}
+	fmt.Print(sb.String())
+}
+
 // -----------------矩阵
 
 type Matrix [][]int
@@ -92,9 +203,6 @@ func NewMatrix(args ...[]int) [][]int {
 	matrix := make([][]int, len(args))
 	for i, arg := range args {
 		matrix[i] = arg
-		//for _, v := range arg {
-		//	matrix[i] = append(matrix[i], v)
-		//}
 	}
 	return matrix
 }
