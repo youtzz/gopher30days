@@ -1,4 +1,4 @@
-package searchrange
+package searchRange
 
 import (
 	"reflect"

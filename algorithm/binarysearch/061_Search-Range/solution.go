@@ -1,4 +1,4 @@
-package searchrange
+package searchRange
 
 // first solution
 func searchRange(nums []int, target int) []int {

@@ -1,4 +1,4 @@
-package _33_Search_in_Rotated_Sorted_Array
+package searchInRotatedSortedArray
 
 // first solution
 func search(nums []int, target int) int {
