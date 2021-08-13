@@ -1,0 +1,42 @@
+## My RoadMap
+
+- [ ] Go 基础
+  - [ ] goroutine
+  - [ ] channel
+  - [ ] 锁
+- [ ] SQL 基础
+- [ ] GIT
+- [ ] OAuth、JWT
+- [ ] 命令行界面 cobra
+- [ ] 关系型数据库
+  - [ ] MySQL
+  - [ ] PostgreSQL
+- [ ] 非关系型数据库
+  - [ ] Redis
+  - [ ] MongoDB
+- [ ] 搜索引擎 ElasticSearch
+- [ ] Web框架
+  - [ ] Echo
+  - [ ] Gin
+  - [ ] Iris
+- [ ] 微服务框架
+  - [ ] kratos
+  - [ ] go-kit
+- [ ] ORM GORM、XORM
+  - [ ] GORM
+  - [ ] XORM
+- [ ] 高速缓存 GCache
+- [ ] 分布式缓存 Go-Redis
+- [x] 日志 Zap
+- [ ] 链路追踪 Jaguar
+- [ ] 实时通信 ？
+- [ ] API客户端 ？ GraphQL
+- [ ] 测试
+  - [ ] 集成测试 Testify
+  - [ ] 行为测试 GoDog
+  - [ ] Mock测试 GoMock
+- [ ] 消息代理
+  - [ ] RabbitMQ
+  - [ ] Apache Kafka
+- [ ] 任务调度 gorn
+- [ ] Go 设计模式

@@ -2,39 +2,34 @@ package binaryTreeInorderTraversal
 
 import . "github.com/sevenger/gopher30days/algorithm"
 
-// first solution
-func isPalindrome(head *ListNode) bool {
-	if head == nil {
-		return false
-	}
-	if head.Next == nil {
-		return true
-	}
+func inorderTraversal(root *TreeNode) (res []int) {
+	inorder(&res, root)
+	return
+}
 
-	// 使用快慢指针将前一半回文存入栈
-	stack := make([]*ListNode, 0)
-	slow, fast := head, head
-	for fast != nil && fast.Next != nil {
-		stack = append(stack, slow)
-		fast = fast.Next.Next
-		slow = slow.Next
+func inorder(res *[]int, root *TreeNode) {
+	if root == nil {
+		return
 	}
+	inorder(res, root.Left)
+	*res = append(*res, root.Val)
+	inorder(res, root.Right)
+}
 
-	// fast不为nil说明链表是奇数个，slow指针在中间位置，要往前进一位
-	if fast != nil {
-		slow = slow.Next
+func inorderTraversal_interactive(root *TreeNode) []int {
+	var res []int
+	if root == nil {
+		return res
 	}
-
-	// 不断退栈比较回文
-	for slow != nil {
-		val := slow.Val
-		if stack[len(stack)-1].Val == val {
-			stack = stack[:len(stack)-1]
-		} else {
-			return false
+	var stack []*TreeNode
+	for len(stack) > 0 || root != nil {
+		for root != nil {
+			stack = append(stack, root)
+			root = root.Left
 		}
-		slow = slow.Next
+		root, stack = stack[len(stack)-1], stack[:len(stack)-1]
+		res = append(res, root.Val)
+		root = root.Right
 	}
-
-	return true
+	return res
 }

@@ -167,7 +167,7 @@ func TestNewMatrixByRowLen(t *testing.T) {
 
 func TestNewBinaryTree(t *testing.T) {
 	type args struct {
-		source []int
+		source []string
 	}
 	tests := []struct {
 		name string
@@ -177,20 +177,12 @@ func TestNewBinaryTree(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				source: []int{1, 2, 3},
+				source: []string{"1", "2", "3"},
 			},
 			want: &TreeNode{
-				Val: 1,
-				Left: &TreeNode{
-					Val:   2,
-					Left:  nil,
-					Right: nil,
-				},
-				Right: &TreeNode{
-					Val:   3,
-					Left:  nil,
-					Right: nil,
-				},
+				Val:   1,
+				Left:  &TreeNode{Val: 2},
+				Right: &TreeNode{Val: 3},
 			},
 		},
 		{
@@ -199,6 +191,38 @@ func TestNewBinaryTree(t *testing.T) {
 				source: nil,
 			},
 			want: nil,
+		},
+		{
+			name: "testcase 3",
+			args: args{
+				source: []string{"1", "nil", "2", "3"},
+			},
+			want: &TreeNode{
+				Val: 1,
+				Right: &TreeNode{
+					Val:  2,
+					Left: &TreeNode{Val: 3},
+				},
+			},
+		},
+		{
+			name: "testcase 4",
+			args: args{
+				source: []string{"1", "nil", "2", "3", "nil", "nil", "4", "5"},
+			},
+			want: &TreeNode{
+				Val: 1,
+				Right: &TreeNode{
+					Val: 2,
+					Left: &TreeNode{
+						Val: 3,
+						Right: &TreeNode{
+							Val:  4,
+							Left: &TreeNode{Val: 5},
+						},
+					},
+				},
+			},
 		},
 	}
 	for _, tt := range tests {
@@ -277,13 +301,13 @@ func TestPrintTree(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				root: NewBinaryTree([]int{1, 2, 3, 4, 5, 6, 7}),
+				root: NewBinaryTreeByArgs("1", "nil", "2", "3", "4", "5", "6"),
 			},
 		},
 		{
 			name: "testcase 2",
 			args: args{
-				root: NewBinaryTree([]int{}),
+				root: NewBinaryTree(nil),
 			},
 		},
 	}

@@ -3,7 +3,6 @@ package algorithm
 
 import (
 	"fmt"
-	"math"
 	"reflect"
 	"strconv"
 	"strings"
@@ -30,10 +29,14 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func NewLinkedList(arg []int) *ListNode {
+func NewLinkedList(args []int) *ListNode {
+	return NewLinkedListByArgs(args...)
+}
+
+func NewLinkedListByArgs(args ...int) *ListNode {
 	dummy := &ListNode{}
 	cur := dummy
-	for _, v := range arg {
+	for _, v := range args {
 		cur.Next = &ListNode{Val: v}
 		cur = cur.Next
 	}
@@ -88,44 +91,48 @@ type TreeNode struct {
 }
 
 // NewBinaryTree 使用层先法创建二叉树
-func NewBinaryTree(args []int) *TreeNode {
-	if args == nil || len(args) == 0 {
-		return nil
+func NewBinaryTree(args []string) (root *TreeNode) {
+	return NewBinaryTreeByArgs(args...)
+}
+
+func NewBinaryTreeByArgs(args ...string) (root *TreeNode) {
+	if len(args) == 0 {
+		return
 	}
+
+	// 创建所有树节点，使用队列保存
 	nodes := make([]*TreeNode, len(args))
 	for i, v := range args {
-		var node *TreeNode
-		// 传math.MaxInt64默认是空节点
-		if v == math.MaxInt64 {
-			node = nil
+		val, err := strconv.Atoi(v)
+		if err != nil {
+			nodes[i] = nil
 		} else {
-			node = &TreeNode{Val: v}
+			nodes[i] = &TreeNode{Val: val}
 		}
-		nodes[i] = node
 	}
-	root, nodes := nodes[0], nodes[1:]
-
-	stack := []*TreeNode{root}
+	// 头结点出列
+	root, nodes = nodes[0], nodes[1:]
 
 	var node *TreeNode
-	for len(stack) != 0 && len(nodes) != 0 {
+	stack := []*TreeNode{root}
+	for len(nodes) > 0 && len(stack) > 0 {
+		// 节点出栈
 		node, stack = stack[0], stack[1:]
-		var left, right *TreeNode
-		if len(nodes) != 0 {
-			left = nodes[0]
-			stack = append(stack, nodes[0])
-			nodes = nodes[1:]
-		}
-		if len(nodes) != 0 {
-			right = nodes[0]
-			stack = append(stack, nodes[0])
-			nodes = nodes[1:]
-		}
+		// 节点不为nil才取left和right
 		if node != nil {
-			node.Left, node.Right = left, right
+			var lNode, rNode *TreeNode
+			if len(nodes) > 0 {
+				lNode, nodes = nodes[0], nodes[1:]
+			}
+			if len(nodes) > 0 {
+				rNode, nodes = nodes[0], nodes[1:]
+			}
+			node.Left, node.Right = lNode, rNode
+			// left、right节点入栈
+			stack = append(stack, lNode, rNode)
 		}
 	}
-	return root
+	return
 }
 
 func CompareBinaryTree(root1, root2 *TreeNode) bool {

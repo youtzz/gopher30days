@@ -13,8 +13,6 @@
 
 [设计模式](https://github.com/sevenelevenlee/go-patterns)
 
-[go生态]()
-
 [go面试题](https://github.com/0voice/interview_internal_reference)
 
 [go学习路线](https://github.com/overnote/over-golang)
