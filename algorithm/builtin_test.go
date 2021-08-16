@@ -317,3 +317,213 @@ func TestPrintTree(t *testing.T) {
 		})
 	}
 }
+
+func TestPreOrder(t *testing.T) {
+	type args struct {
+		root *TreeNode
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			name: "testcase 1",
+			args: args{
+				root: NewBinaryTreeByArgs("1", "2", "3"),
+			},
+			want: []int{1, 2, 3},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PreOrder(tt.args.root); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("PreOrder() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPreOrderRecursive(t *testing.T) {
+	type args struct {
+		root *TreeNode
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			name: "testcase 1",
+			args: args{
+				root: NewBinaryTreeByArgs("1", "2", "3"),
+			},
+			want: []int{1, 2, 3},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			var got []int
+			PreOrderRecursive(tt.args.root, &got)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("PreOrderRecursive() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestInOrder(t *testing.T) {
+	type args struct {
+		root *TreeNode
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			name: "testcase 1",
+			args: args{
+				root: NewBinaryTreeByArgs("1", "2", "3"),
+			},
+			want: []int{2, 1, 3},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := InOrder(tt.args.root); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("InOrder() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestPostOrder(t *testing.T) {
+	type args struct {
+		root *TreeNode
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			name: "testcase 1",
+			args: args{
+				root: NewBinaryTreeByArgs("1", "2", "3"),
+			},
+			want: []int{2, 3, 1},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PostOrder(tt.args.root); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("PostOrder() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestDfs(t *testing.T) {
+	type args struct {
+		root *TreeNode
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			name: "testcase 1",
+			args: args{
+				NewBinaryTreeByArgs("1", "2", "nil", "3", "nil", "4", "nil", "5", "nil", "6"),
+			},
+			want: []int{1, 2, 3, 4, 5, 6},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := Dfs(tt.args.root); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("Dfs() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestDfs2(t *testing.T) {
+	type args struct {
+		root *TreeNode
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			name: "testcase 1",
+			args: args{
+				NewBinaryTreeByArgs("1", "2", "nil", "3", "nil", "4", "nil", "5", "nil", "6"),
+			},
+			want: NewSlice(1, 2, 3, 4, 5, 6),
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := Dfs_divideAndConquer(tt.args.root); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("Dfs_divideAndConquer() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestMergeSort(t *testing.T) {
+	type args struct {
+		arr []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			name: "testcase 1",
+			args: args{
+				arr: []int{9, 8, 7, 6, 5, 4, 3, 2, 1},
+			},
+			want: []int{1, 2, 3, 4, 5, 6, 7, 8, 9},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := MergeSort(tt.args.arr); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("MergeSort() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestQuickSort(t *testing.T) {
+	type args struct {
+		arr []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			name: "testcase 1",
+			args: args{
+				[]int{9, 8, 7, 6, 5, 4, 3, 2, 1, 0},
+			},
+			want: []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := QuickSort(tt.args.arr); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("QuickSort() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
