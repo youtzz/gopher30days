@@ -36,20 +36,16 @@ func inorder(res *[]int, root *TreeNode) {
 
 // 我的解法2：根据每一棵二叉搜索树的子树都是二叉搜索树的特性，可以利用分治思想
 func isValidBST_dac(root *TreeNode) bool {
-	return order(root) >= 0
+	return helper(root, math.MinInt64, math.MaxInt64)
 }
 
-func order(root *TreeNode) int {
+func helper(root *TreeNode, low, high int) bool {
 	if root == nil {
-		return 0
+		return true
 	}
-	if root.Left == nil && root.Right == nil {
-		return root.Val
+
+	if root.Val <= low || root.Val >= high {
+		return false
 	}
-	l := order(root.Left)
-	r := order(root.Right)
-	if l > root.Val || r < root.Val || l < 0 || r < 0 {
-		return -1
-	}
-	return root.Val
+	return helper(root.Left, low, root.Val) && helper(root.Right, root.Val, high)
 }
