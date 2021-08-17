@@ -414,6 +414,13 @@ func TestPostOrder(t *testing.T) {
 			},
 			want: []int{2, 3, 1},
 		},
+		{
+			name: "testcase 2",
+			args: args{
+				root: NewBinaryTreeByArgs("1", "2", "3", "4", "nil", "nil", "5"),
+			},
+			want: []int{4, 2, 5, 3, 1},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -450,7 +457,7 @@ func TestDfs(t *testing.T) {
 	}
 }
 
-func TestDfs2(t *testing.T) {
+func TestDfs_divideAndConquer(t *testing.T) {
 	type args struct {
 		root *TreeNode
 	}
