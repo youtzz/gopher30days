@@ -1,4 +1,4 @@
-package _859_Buddy_Strings
+package problem0859
 
 func buddyStrings(s string, goal string) bool {
 	if len(s) != len(goal) {

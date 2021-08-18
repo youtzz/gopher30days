@@ -33,5 +33,17 @@ func inorderTraversal_interactive(root *TreeNode) []int {
 		res = append(res, root.Val)
 		root = root.Right
 	}
+	print(1, 2, 3, 4, func(i int) {
+		i += 1000
+	})
+	print(1, 2, 3, 4, func(i int) {
+		i -= 10000
+	})
 	return res
+}
+
+func print(a, b, c, d int, f func(i int)) {
+	if a > b {
+		f(a)
+	}
 }
