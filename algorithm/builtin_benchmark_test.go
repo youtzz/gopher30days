@@ -19,7 +19,7 @@ func BenchmarkQuickSort(b *testing.B) {
 }
 
 func BenchmarkDfs(b *testing.B) {
-	tree := NewBinaryTree([]string{"1", "2", "3", "4", "5", "6", "7"})
+	tree := NewBinaryTreeByArgs(1, 2, 3, 4, 5, 6, 7, 8)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		Dfs(tree)
@@ -27,7 +27,7 @@ func BenchmarkDfs(b *testing.B) {
 }
 
 func BenchmarkDfs_divideAndConquer(b *testing.B) {
-	tree := NewBinaryTree([]string{"1", "2", "3", "4", "5", "6", "7"})
+	tree := NewBinaryTreeByArgs(1, 2, 3, 4, 5, 6, 7, 8)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		Dfs_divideAndConquer(tree)

@@ -5,7 +5,7 @@ import "testing"
 /**
 * goos: linux
 * goarch: amd64
-* pkg: github.com/sevenger/gopher30days/algorithm/tree/111_Minimum_Depth_of_Binary_Tree
+* pkg: github.com/sevenger/gopher30days/algorithm/tree/0111.Minimum-Depth-of-Binary-Tree
 * cpu: Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz
 * Benchmark_openLock-6                        2191            546059 ns/op          285418 B/op       6616 allocs/op
 * Benchmark_openLock_double_bfs-6            15544             75739 ns/op           26755 B/op        687 allocs/op

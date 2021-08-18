@@ -167,7 +167,7 @@ func TestNewMatrixByRowLen(t *testing.T) {
 
 func TestNewBinaryTree(t *testing.T) {
 	type args struct {
-		source []string
+		source []int
 	}
 	tests := []struct {
 		name string
@@ -177,7 +177,7 @@ func TestNewBinaryTree(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				source: []string{"1", "2", "3"},
+				source: []int{1, 2, 3},
 			},
 			want: &TreeNode{
 				Val:   1,
@@ -195,7 +195,7 @@ func TestNewBinaryTree(t *testing.T) {
 		{
 			name: "testcase 3",
 			args: args{
-				source: []string{"1", "nil", "2", "3"},
+				source: []int{1, null, 2, 3},
 			},
 			want: &TreeNode{
 				Val: 1,
@@ -208,7 +208,7 @@ func TestNewBinaryTree(t *testing.T) {
 		{
 			name: "testcase 4",
 			args: args{
-				source: []string{"1", "nil", "2", "3", "nil", "nil", "4", "5"},
+				source: []int{1, null, 2, 3, null, null, 4, 5},
 			},
 			want: &TreeNode{
 				Val: 1,
@@ -301,7 +301,7 @@ func TestPrintTree(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				root: NewBinaryTreeByArgs("1", "nil", "2", "3", "4", "5", "6"),
+				root: NewBinaryTreeByArgs(1, null, 2, 3, 3, 5, 6),
 			},
 		},
 		{
@@ -330,7 +330,7 @@ func TestPreOrder(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				root: NewBinaryTreeByArgs("1", "2", "3"),
+				root: NewBinaryTreeByArgs(1, 2, 3),
 			},
 			want: []int{1, 2, 3},
 		},
@@ -356,7 +356,7 @@ func TestPreOrderRecursive(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				root: NewBinaryTreeByArgs("1", "2", "3"),
+				root: NewBinaryTreeByArgs(1, 2, 3),
 			},
 			want: []int{1, 2, 3},
 		},
@@ -384,7 +384,7 @@ func TestInOrder(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				root: NewBinaryTreeByArgs("1", "2", "3"),
+				root: NewBinaryTreeByArgs(1, 2, 3),
 			},
 			want: []int{2, 1, 3},
 		},
@@ -410,14 +410,14 @@ func TestPostOrder(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				root: NewBinaryTreeByArgs("1", "2", "3"),
+				root: NewBinaryTreeByArgs(1, 2, 3),
 			},
 			want: []int{2, 3, 1},
 		},
 		{
 			name: "testcase 2",
 			args: args{
-				root: NewBinaryTreeByArgs("1", "2", "3", "4", "nil", "nil", "5"),
+				root: NewBinaryTreeByArgs(1, 2, 3, 4, null, null, 5),
 			},
 			want: []int{4, 2, 5, 3, 1},
 		},
@@ -443,7 +443,7 @@ func TestDfs(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				NewBinaryTreeByArgs("1", "2", "nil", "3", "nil", "4", "nil", "5", "nil", "6"),
+				NewBinaryTreeByArgs(1, 2, null, 3, null, 4, null, 5, null, 6),
 			},
 			want: []int{1, 2, 3, 4, 5, 6},
 		},
@@ -469,9 +469,9 @@ func TestDfs_divideAndConquer(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				NewBinaryTreeByArgs("1", "2", "nil", "3", "nil", "4", "nil", "5", "nil", "6"),
+				NewBinaryTreeByArgs(1, 2, null, 3, null, 4, null, 5, null, 6),
 			},
-			want: NewSlice(1, 2, 3, 4, 5, 6),
+			want: NewLinerList(1, 2, 3, 4, 5, 6),
 		},
 	}
 	for _, tt := range tests {
