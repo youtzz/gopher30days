@@ -1,4 +1,4 @@
-package binaryTreeInorderTraversal
+package problem94
 
 import "testing"
 

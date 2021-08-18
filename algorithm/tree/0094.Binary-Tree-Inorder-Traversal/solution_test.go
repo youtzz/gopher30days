@@ -1,7 +1,7 @@
-package binaryTreeInorderTraversal
+package problem94
 
 import (
-	. "github.com/sevenger/gopher30days/algorithm"
+	"github.com/sevenger/gopher30days/algorithm"
 	"reflect"
 	"testing"
 )
@@ -18,35 +18,35 @@ var tests = []struct {
 	{
 		name: "testcase 1",
 		args: args{
-			root: NewBinaryTreeByArgs("1", "nil", "2", "3"),
+			root: algorithm.NewBinaryTreeByArgs("1", "nil", "2", "3"),
 		},
 		want: []int{1, 3, 2},
 	},
 	{
 		name: "testcase 2",
 		args: args{
-			root: NewBinaryTreeByArgs(),
+			root: algorithm.NewBinaryTreeByArgs(),
 		},
 		want: nil,
 	},
 	{
 		name: "testcase 3",
 		args: args{
-			root: NewBinaryTreeByArgs("1"),
+			root: algorithm.NewBinaryTreeByArgs("1"),
 		},
 		want: []int{1},
 	},
 	{
 		name: "testcase 4",
 		args: args{
-			root: NewBinaryTreeByArgs("1", "2"),
+			root: algorithm.NewBinaryTreeByArgs("1", "2"),
 		},
 		want: []int{2, 1},
 	},
 	{
 		name: "testcase 5",
 		args: args{
-			root: NewBinaryTreeByArgs("1", "nil", "2"),
+			root: algorithm.NewBinaryTreeByArgs("1", "nil", "2"),
 		},
 		want: []int{1, 2},
 	},

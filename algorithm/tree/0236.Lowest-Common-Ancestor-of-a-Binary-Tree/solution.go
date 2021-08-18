@@ -1,6 +1,8 @@
 package Lowest_Common_Ancestor_of_a_Binary_Tree
 
-import . "github.com/sevenger/gopher30days/algorithm"
+import "github.com/sevenger/gopher30days/algorithm"
+
+type TreeNode = algorithm.TreeNode
 
 // 分治
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {

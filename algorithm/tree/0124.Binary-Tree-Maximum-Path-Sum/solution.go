@@ -1,9 +1,11 @@
-package Binary_Tree_Maximum_Path_Sum
+package problem0124
 
 import (
-	. "github.com/sevenger/gopher30days/algorithm"
+	"github.com/sevenger/gopher30days/algorithm"
 	"math"
 )
+
+type TreeNode = algorithm.TreeNode
 
 func maxPathSum(root *TreeNode) int {
 	maxSum := math.MinInt32

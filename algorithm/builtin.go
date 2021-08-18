@@ -9,15 +9,15 @@ import (
 	"strings"
 )
 
-const null = math.MinInt64
+const null = math.MinInt
 const NULL = null
 
 // ---------------------------------线性表---------------------------------
 
-type Slice []int
+type LinerList = []int
 
-func NewSlice(args ...int) Slice {
-	s := make(Slice, len(args))
+func NewLinerList(args ...int) LinerList {
+	s := make(LinerList, len(args))
 	for i, v := range args {
 		s[i] = v
 	}
@@ -26,7 +26,7 @@ func NewSlice(args ...int) Slice {
 
 // ----------------------------------链表----------------------------------
 
-type LinkedList *ListNode
+type LinkedList = *ListNode
 
 type ListNode struct {
 	Val  int
@@ -86,7 +86,7 @@ func getFormatLinkedListString(head *ListNode) string {
 
 // -----------------------------------树-----------------------------------
 
-type Tree *TreeNode
+type Tree = TreeNode
 
 type TreeNode struct {
 	Val   int
@@ -94,14 +94,15 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func NewBinaryTreeByInt(ints []int) *TreeNode {
-	n := len(ints)
+// NewBinaryTree 使用层先法创建二叉树
+func NewBinaryTree(arr []int) *TreeNode {
+	n := len(arr)
 	if n == 0 {
 		return nil
 	}
 
 	root := &TreeNode{
-		Val: ints[0],
+		Val: arr[0],
 	}
 
 	queue := make([]*TreeNode, 1, n*2)
@@ -112,14 +113,14 @@ func NewBinaryTreeByInt(ints []int) *TreeNode {
 		node := queue[0]
 		queue = queue[1:]
 
-		if i < n && ints[i] != NULL {
-			node.Left = &TreeNode{Val: ints[i]}
+		if i < n && arr[i] != NULL {
+			node.Left = &TreeNode{Val: arr[i]}
 			queue = append(queue, node.Left)
 		}
 		i++
 
-		if i < n && ints[i] != NULL {
-			node.Right = &TreeNode{Val: ints[i]}
+		if i < n && arr[i] != NULL {
+			node.Right = &TreeNode{Val: arr[i]}
 			queue = append(queue, node.Right)
 		}
 		i++
@@ -128,49 +129,8 @@ func NewBinaryTreeByInt(ints []int) *TreeNode {
 	return root
 }
 
-// NewBinaryTree 使用层先法创建二叉树
-func NewBinaryTree(args []string) (root *TreeNode) {
-	return NewBinaryTreeByArgs(args...)
-}
-
-func NewBinaryTreeByArgs(args ...string) (root *TreeNode) {
-	if len(args) == 0 {
-		return
-	}
-
-	// 创建所有树节点，使用队列保存
-	nodes := make([]*TreeNode, len(args))
-	for i, v := range args {
-		val, err := strconv.Atoi(v)
-		if err != nil {
-			nodes[i] = nil
-		} else {
-			nodes[i] = &TreeNode{Val: val}
-		}
-	}
-	// 头结点出列
-	root, nodes = nodes[0], nodes[1:]
-
-	var node *TreeNode
-	stack := []*TreeNode{root}
-	for len(nodes) > 0 && len(stack) > 0 {
-		// 节点出栈
-		node, stack = stack[0], stack[1:]
-		// 节点不为nil才取left和right
-		if node != nil {
-			var lNode, rNode *TreeNode
-			if len(nodes) > 0 {
-				lNode, nodes = nodes[0], nodes[1:]
-			}
-			if len(nodes) > 0 {
-				rNode, nodes = nodes[0], nodes[1:]
-			}
-			node.Left, node.Right = lNode, rNode
-			// left、right节点入栈
-			stack = append(stack, lNode, rNode)
-		}
-	}
-	return
+func NewBinaryTreeByArgs(args ...int) (root *TreeNode) {
+	return NewBinaryTree(args)
 }
 
 func CompareBinaryTree(root1, root2 *TreeNode) bool {
@@ -365,8 +325,8 @@ func LevelOrder(root *TreeNode) [][]int {
 
 // ----------------------------------矩阵----------------------------------
 
-type Matrix [][]int
-type Row []int
+type Matrix = [][]int
+type Row = []int
 
 func NewMatrix(args ...[]int) [][]int {
 	matrix := make([][]int, len(args))

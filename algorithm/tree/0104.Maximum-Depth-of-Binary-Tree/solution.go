@@ -1,6 +1,8 @@
-package Maximum_Depth_of_Binary_Tree
+package problem0104
 
-import . "github.com/sevenger/gopher30days/algorithm"
+import "github.com/sevenger/gopher30days/algorithm"
+
+type TreeNode = algorithm.TreeNode
 
 func maxDepth_bfs(root *TreeNode) int {
 	if root == nil {

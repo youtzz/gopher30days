@@ -1,12 +1,12 @@
-package Maximum_Depth_of_Binary_Tree
+package problem0104
 
 import (
-	. "github.com/sevenger/gopher30days/algorithm"
+	"github.com/sevenger/gopher30days/algorithm"
 	"testing"
 )
 
 func BenchmarkMaxDepth_bfs(b *testing.B) {
-	tree := NewBinaryTreeByArgs("3", "9", "20", "nil", "nil", "15", "7")
+	tree := algorithm.NewBinaryTreeByArgs("3", "9", "20", "nil", "nil", "15", "7")
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		maxDepth_bfs(tree)
@@ -14,7 +14,7 @@ func BenchmarkMaxDepth_bfs(b *testing.B) {
 }
 
 func BenchmarkMaxDepth(b *testing.B) {
-	tree := NewBinaryTreeByArgs("3", "9", "20", "nil", "nil", "15", "7")
+	tree := algorithm.NewBinaryTreeByArgs("3", "9", "20", "nil", "nil", "15", "7")
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		maxDepth(tree)

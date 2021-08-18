@@ -1,4 +1,4 @@
-package Binary_Tree_Maximum_Path_Sum
+package problem0124
 
 import (
 	"github.com/sevenger/gopher30days/algorithm"

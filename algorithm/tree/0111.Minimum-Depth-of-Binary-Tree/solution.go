@@ -1,9 +1,11 @@
-package Minimum_Depth_of_Binary_Tree
+package problem0111
 
 import (
-	. "github.com/sevenger/gopher30days/algorithm"
+	"github.com/sevenger/gopher30days/algorithm"
 	"math"
 )
+
+type TreeNode = algorithm.TreeNode
 
 // 我的解法 DFS
 func minDepth(root *TreeNode) int {

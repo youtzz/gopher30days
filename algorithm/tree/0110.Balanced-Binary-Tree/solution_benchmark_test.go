@@ -1,4 +1,4 @@
-package Balanced_Binary_Tree
+package problem0110
 
 import (
 	"github.com/sevenger/gopher30days/algorithm"
@@ -8,7 +8,7 @@ import (
 /**
  * goos: linux
  * goarch: amd64
- * pkg: github.com/sevenger/gopher30days/algorithm/tree/110_Balanced_Binary_Tree
+ * pkg: github.com/sevenger/gopher30days/algorithm/tree/0110.Balanced-Binary-Tree
  * cpu: Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz
  * Benchmark_isBalanced-6        	57098278	        20.89 ns/op
  * Benchmark_isBalanced_best-6   	60441040	        19.84 ns/op

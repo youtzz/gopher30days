@@ -1,4 +1,4 @@
-package Binary_Tree_Level_Order_Traversal
+package problem0102
 
 import (
 	"github.com/sevenger/gopher30days/algorithm"

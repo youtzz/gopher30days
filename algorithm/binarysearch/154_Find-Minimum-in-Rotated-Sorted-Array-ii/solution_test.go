@@ -17,21 +17,21 @@ func Test_findMin(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				nums: algorithm.NewSlice(1, 3, 5),
+				nums: algorithm.NewLinerList(1, 3, 5),
 			},
 			want: 1,
 		},
 		{
 			name: "testcase 2",
 			args: args{
-				nums: algorithm.NewSlice(2, 2, 2, 0, 1),
+				nums: algorithm.NewLinerList(2, 2, 2, 0, 1),
 			},
 			want: 0,
 		},
 		{
 			name: "testcase 3",
 			args: args{
-				nums: algorithm.NewSlice(10, 1, 10, 10, 10),
+				nums: algorithm.NewLinerList(10, 1, 10, 10, 10),
 			},
 			want: 1,
 		},

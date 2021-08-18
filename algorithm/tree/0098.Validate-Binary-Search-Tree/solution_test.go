@@ -64,28 +64,28 @@ func Test_isValidBST_dac(t *testing.T) {
 		{
 			name: "testcase 3",
 			args: args{
-				root: algorithm.NewBinaryTreeByInt([]int{2, 2, 2}),
+				root: algorithm.NewBinaryTreeByArr([]int{2, 2, 2}),
 			},
 			want: false,
 		},
 		{
 			name: "testcase 4",
 			args: args{
-				root: algorithm.NewBinaryTreeByInt([]int{0, -1}),
+				root: algorithm.NewBinaryTreeByArr([]int{0, -1}),
 			},
 			want: true,
 		},
 		{
 			name: "testcase 5",
 			args: args{
-				root: algorithm.NewBinaryTreeByInt([]int{1, algorithm.NULL, 1}),
+				root: algorithm.NewBinaryTreeByArr([]int{1, algorithm.NULL, 1}),
 			},
 			want: false,
 		},
 		{
 			name: "testcase 6",
 			args: args{
-				root: algorithm.NewBinaryTreeByInt([]int{5, 4, 6, algorithm.NULL, algorithm.NULL, 3, 7}),
+				root: algorithm.NewBinaryTreeByArr([]int{5, 4, 6, algorithm.NULL, algorithm.NULL, 3, 7}),
 			},
 			want: false,
 		},

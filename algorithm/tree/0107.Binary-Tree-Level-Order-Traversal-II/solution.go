@@ -1,6 +1,8 @@
-package Binary_Tree_Level_Order_Traversal_II
+package problem0107
 
-import . "github.com/sevenger/gopher30days/algorithm"
+import "github.com/sevenger/gopher30days/algorithm"
+
+type TreeNode = algorithm.TreeNode
 
 func levelOrderBottom(root *TreeNode) [][]int {
 	if root == nil {

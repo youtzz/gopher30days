@@ -1,4 +1,4 @@
-package Maximum_Depth_of_Binary_Tree
+package problem0104
 
 import (
 	. "github.com/sevenger/gopher30days/algorithm"

@@ -1,6 +1,8 @@
-package binaryTreeInorderTraversal
+package problem94
 
-import . "github.com/sevenger/gopher30days/algorithm"
+import "github.com/sevenger/gopher30days/algorithm"
+
+type TreeNode = algorithm.TreeNode
 
 func inorderTraversal(root *TreeNode) (res []int) {
 	inorder(&res, root)

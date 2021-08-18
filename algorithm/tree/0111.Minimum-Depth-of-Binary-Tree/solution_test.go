@@ -1,7 +1,7 @@
-package Minimum_Depth_of_Binary_Tree
+package problem0111
 
 import (
-	. "github.com/sevenger/gopher30days/algorithm"
+	"github.com/sevenger/gopher30days/algorithm"
 	"testing"
 )
 
@@ -17,13 +17,13 @@ func Test_minDepth(t *testing.T) {
 		{
 			name: "Test_minDepth 1",
 			args: args{
-				NewBinaryTreeByArgs("3", "9", "20", "null", "null", "15", "7"),
+				algorithm.NewBinaryTreeByArgs("3", "9", "20", "null", "null", "15", "7"),
 			},
 			want: 2,
 		}, {
 			name: "Test_minDepth 2",
 			args: args{
-				NewBinaryTreeByArgs("2", "null", "3", "null", "4", "null", "5", "null", "6"),
+				algorithm.NewBinaryTreeByArgs("2", "null", "3", "null", "4", "null", "5", "null", "6"),
 			},
 			want: 5,
 		},
@@ -49,13 +49,13 @@ func Test_minDepth_DFS(t *testing.T) {
 		{
 			name: "Test_minDepth 1",
 			args: args{
-				NewBinaryTreeByArgs("3", "9", "20", "null", "null", "15", "7"),
+				algorithm.NewBinaryTreeByArgs("3", "9", "20", "null", "null", "15", "7"),
 			},
 			want: 2,
 		}, {
 			name: "Test_minDepth 2",
 			args: args{
-				NewBinaryTreeByArgs("2", "null", "3", "null", "4", "null", "5", "null", "6"),
+				algorithm.NewBinaryTreeByArgs("2", "null", "3", "null", "4", "null", "5", "null", "6"),
 			},
 			want: 5,
 		},

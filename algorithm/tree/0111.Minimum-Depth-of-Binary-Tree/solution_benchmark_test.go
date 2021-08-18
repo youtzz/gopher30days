@@ -1,4 +1,4 @@
-package Minimum_Depth_of_Binary_Tree
+package problem0111
 
 import (
 	"github.com/sevenger/gopher30days/algorithm"
@@ -8,7 +8,7 @@ import (
 /**
 * goos: linux
 * goarch: amd64
-* pkg: github.com/sevenger/gopher30days/algorithm/tree/111_Minimum_Depth_of_Binary_Tree
+* pkg: github.com/sevenger/gopher30days/algorithm/tree/0111.Minimum-Depth-of-Binary-Tree
 * cpu: Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz
 * Benchmark_minDepth-6       	20187448	        58.55 ns/op
 * Benchmark_minDepth_DFS-6   	18622622	        63.70 ns/op

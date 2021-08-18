@@ -1,6 +1,8 @@
-package Balanced_Binary_Tree
+package problem0110
 
-import . "github.com/sevenger/gopher30days/algorithm"
+import "github.com/sevenger/gopher30days/algorithm"
+
+type TreeNode = algorithm.TreeNode
 
 // 我的解法
 func isBalanced(root *TreeNode) bool {
