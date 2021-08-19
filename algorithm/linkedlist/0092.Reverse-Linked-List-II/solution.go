@@ -1,6 +1,8 @@
-package reverseLinkedListII
+package problem0092
 
-import . "github.com/sevenger/gopher30days/algorithm"
+import "github.com/sevenger/gopher30days/algorithm"
+
+type ListNode = algorithm.ListNode
 
 // first solution
 func reverseBetween(head *ListNode, left int, right int) *ListNode {

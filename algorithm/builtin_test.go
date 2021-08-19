@@ -90,8 +90,8 @@ func Test_getFormatLinkListString(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := getFormatLinkedListString(tt.args.head); got != tt.want {
-				t.Errorf("getFormatLinkedListString() = %v, want %v", got, tt.want)
+			if got := GetFormatLinkedListString(tt.args.head); got != tt.want {
+				t.Errorf("GetFormatLinkedListString() = %v, want %v", got, tt.want)
 			}
 		})
 	}
