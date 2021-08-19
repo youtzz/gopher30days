@@ -1,6 +1,8 @@
 package sortList
 
-import . "github.com/sevenger/gopher30days/algorithm"
+import "github.com/sevenger/gopher30days/algorithm"
+
+type ListNode = algorithm.ListNode
 
 // best solution
 func sortList(head *ListNode) *ListNode {

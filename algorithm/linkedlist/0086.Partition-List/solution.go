@@ -1,4 +1,4 @@
-package partitionList
+package problem0086
 
 import . "github.com/sevenger/gopher30days/algorithm"
 

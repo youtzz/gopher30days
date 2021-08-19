@@ -1,6 +1,8 @@
-package mergeTwoSortedLists
+package problem0021
 
-import . "github.com/sevenger/gopher30days/algorithm"
+import "github.com/sevenger/gopher30days/algorithm"
+
+type ListNode = algorithm.ListNode
 
 // first solution
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {

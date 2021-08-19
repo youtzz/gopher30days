@@ -63,10 +63,10 @@ func CompareLinkedList(l1, l2 *ListNode) bool {
 }
 
 func PrintLinkedList(head *ListNode) {
-	fmt.Println(getFormatLinkedListString(head))
+	fmt.Println(GetFormatLinkedListString(head))
 }
 
-func getFormatLinkedListString(head *ListNode) string {
+func GetFormatLinkedListString(head *ListNode) string {
 	var stack []int
 	for head != nil {
 		stack = append(stack, head.Val)
