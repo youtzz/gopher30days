@@ -18,7 +18,7 @@ func Test_levelOrder(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				root: algorithm.NewBinaryTreeByArgs("3", "9", "20", "null", "null", "15", "7"),
+				root: algorithm.NewBinaryTreeByArgs(3, 9, 20, algorithm.NULL, algorithm.NULL, 15, 7),
 			},
 			want: [][]int{
 				{15, 7},

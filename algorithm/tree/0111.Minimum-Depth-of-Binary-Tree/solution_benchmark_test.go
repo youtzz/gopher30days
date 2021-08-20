@@ -17,7 +17,7 @@ import (
 */
 
 func Benchmark_minDepth(b *testing.B) {
-	tree := algorithm.NewBinaryTreeByArgs("3", "9", "20", "null", "null", "15", "7")
+	tree := algorithm.NewBinaryTreeByArgs(3, 9, 20, algorithm.NULL, algorithm.NULL, 15, 7)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		minDepth(tree)
@@ -25,7 +25,7 @@ func Benchmark_minDepth(b *testing.B) {
 }
 
 func Benchmark_minDepth_DFS(b *testing.B) {
-	tree := algorithm.NewBinaryTreeByArgs("3", "9", "20", "null", "null", "15", "7")
+	tree := algorithm.NewBinaryTreeByArgs(3, 9, 20, algorithm.NULL, algorithm.NULL, 15, 7)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		minDepth_DFS(tree)

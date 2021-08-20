@@ -17,14 +17,14 @@ func Test_isValidBST(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				root: algorithm.NewBinaryTreeByArgs("2", "1", "3"),
+				root: algorithm.NewBinaryTreeByArgs(2, 1, 3),
 			},
 			want: true,
 		},
 		{
 			name: "testcase 2",
 			args: args{
-				root: algorithm.NewBinaryTreeByArgs("5", "1", "4", "null", "null", "3", "6"),
+				root: algorithm.NewBinaryTreeByArgs(5, 1, 4, algorithm.NULL, algorithm.NULL, 3, 6),
 			},
 			want: false,
 		},
@@ -50,42 +50,42 @@ func Test_isValidBST_dac(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				root: algorithm.NewBinaryTreeByArgs("2", "1", "3"),
+				root: algorithm.NewBinaryTreeByArgs(2, 1, 3),
 			},
 			want: true,
 		},
 		{
 			name: "testcase 2",
 			args: args{
-				root: algorithm.NewBinaryTreeByArgs("5", "1", "4", "null", "null", "3", "6"),
+				root: algorithm.NewBinaryTreeByArgs(5, 1, 4, algorithm.NULL, algorithm.NULL, 3, 6),
 			},
 			want: false,
 		},
 		{
 			name: "testcase 3",
 			args: args{
-				root: algorithm.NewBinaryTreeByArr([]int{2, 2, 2}),
+				root: algorithm.NewBinaryTree([]int{2, 2, 2}),
 			},
 			want: false,
 		},
 		{
 			name: "testcase 4",
 			args: args{
-				root: algorithm.NewBinaryTreeByArr([]int{0, -1}),
+				root: algorithm.NewBinaryTree([]int{0, -1}),
 			},
 			want: true,
 		},
 		{
 			name: "testcase 5",
 			args: args{
-				root: algorithm.NewBinaryTreeByArr([]int{1, algorithm.NULL, 1}),
+				root: algorithm.NewBinaryTree([]int{1, algorithm.NULL, 1}),
 			},
 			want: false,
 		},
 		{
 			name: "testcase 6",
 			args: args{
-				root: algorithm.NewBinaryTreeByArr([]int{5, 4, 6, algorithm.NULL, algorithm.NULL, 3, 7}),
+				root: algorithm.NewBinaryTree([]int{5, 4, 6, algorithm.NULL, algorithm.NULL, 3, 7}),
 			},
 			want: false,
 		},

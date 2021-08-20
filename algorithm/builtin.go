@@ -26,7 +26,7 @@ func NewLinerList(args ...int) LinerList {
 
 // ----------------------------------链表----------------------------------
 
-type LinkedList = *ListNode
+type LinkedList = ListNode
 
 type ListNode struct {
 	Val  int
@@ -47,6 +47,31 @@ func NewLinkedListByArgs(args ...int) *ListNode {
 	return dummy.Next
 }
 
+// NewCycleLinedList 创建环形链表
+func NewCycleLinedList(arr []int, pos int) *ListNode {
+	if pos == -1 {
+		return NewLinkedList(arr)
+	}
+
+	dummy := &ListNode{}
+	prev := dummy
+	var start, end *ListNode
+	for i, v := range arr {
+		node := &ListNode{Val: v}
+		prev.Next = node
+		prev = prev.Next
+		if i == pos {
+			start = node
+		}
+		if i == len(arr)-1 {
+			end = node
+		}
+	}
+	end.Next = start
+	return dummy.Next
+}
+
+// CompareLinkedList 比较链表是否相同
 func CompareLinkedList(l1, l2 *ListNode) bool {
 	for l1 != nil && l2 != nil {
 		if l1.Val != l2.Val {
@@ -62,10 +87,30 @@ func CompareLinkedList(l1, l2 *ListNode) bool {
 	return true
 }
 
+// HasCycle 检查链表是否含有环
+func HasCycle(head *ListNode) (*ListNode, bool) {
+	slow, fast := head, head
+	for fast != nil && fast.Next != nil {
+		fast = fast.Next.Next
+		slow = slow.Next
+		if fast == slow {
+			p := head
+			for p != slow {
+				p = p.Next
+				slow = slow.Next
+			}
+			return p, true
+		}
+	}
+	return nil, false
+}
+
+// PrintLinkedList 格式化打印链表
 func PrintLinkedList(head *ListNode) {
 	fmt.Println(GetFormatLinkedListString(head))
 }
 
+// GetFormatLinkedListString 得到格式化链表字符串
 func GetFormatLinkedListString(head *ListNode) string {
 	var stack []int
 	for head != nil {

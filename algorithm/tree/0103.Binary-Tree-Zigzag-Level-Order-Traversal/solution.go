@@ -1,6 +1,8 @@
 package problem0103
 
-import . "github.com/sevenger/gopher30days/algorithm"
+import "github.com/sevenger/gopher30days/algorithm"
+
+type TreeNode = algorithm.TreeNode
 
 func zigzagLevelOrder(root *TreeNode) [][]int {
 	if root == nil {

@@ -1,4 +1,4 @@
-package problem0102
+package problem0103
 
 import (
 	"github.com/sevenger/gopher30days/algorithm"
@@ -6,9 +6,9 @@ import (
 	"testing"
 )
 
-func Test_levelOrder(t *testing.T) {
+func Test_zigzagLevelOrder(t *testing.T) {
 	type args struct {
-		root *algorithm.TreeNode
+		root *TreeNode
 	}
 	tests := []struct {
 		name string
@@ -22,15 +22,15 @@ func Test_levelOrder(t *testing.T) {
 			},
 			want: [][]int{
 				{3},
-				{9, 20},
+				{20, 9},
 				{15, 7},
 			},
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := levelOrder(tt.args.root); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("levelOrder() = %v, want %v", got, tt.want)
+			if got := zigzagLevelOrder(tt.args.root); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("zigzagLevelOrder() = %v, want %v", got, tt.want)
 			}
 		})
 	}

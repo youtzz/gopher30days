@@ -534,3 +534,107 @@ func TestQuickSort(t *testing.T) {
 		})
 	}
 }
+
+func TestNewCycleLinedList(t *testing.T) {
+	type args struct {
+		arr []int
+		pos int
+	}
+	tests := []struct {
+		name string
+		args args
+		want *ListNode
+	}{
+		{
+			name: "tescase 1",
+			args: args{
+				arr: []int{1, 2, 3, 4},
+				pos: 0,
+			},
+			want: func() *ListNode {
+				start := &ListNode{Val: 1}
+				end := &ListNode{Val: 4, Next: start}
+				start.Next = &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: end}}
+				return start
+			}(),
+		},
+		{
+			name: "tescase 1",
+			args: args{
+				arr: []int{1, 2, 3, 4},
+				pos: -1,
+			},
+			want: func() *ListNode {
+				return &ListNode{
+					Val: 1,
+					Next: &ListNode{
+						Val: 2,
+						Next: &ListNode{
+							Val: 3,
+							Next: &ListNode{
+								Val: 4,
+							},
+						},
+					}}
+			}(),
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := NewCycleLinedList(tt.args.arr, tt.args.pos); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("NewCycleLinedList() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestHasCycle(t *testing.T) {
+	type args struct {
+		head *ListNode
+	}
+	tests := []struct {
+		name string
+		args args
+		want *ListNode
+		has  bool
+	}{
+		{
+			name: "只有一个节点的环",
+			args: args{
+				head: func() *ListNode {
+					start := &ListNode{Val: 1}
+					start.Next = start
+					return start
+				}(),
+			},
+			has: true,
+		},
+		{
+			name: "三个节点的环",
+			args: args{
+				head: func() *ListNode {
+					start := &ListNode{Val: 1}
+					end := &ListNode{Val: 3, Next: start}
+					start.Next = &ListNode{Val: 2, Next: end}
+					return start
+				}(),
+			},
+			has: true,
+		},
+		{
+			name: "没有环",
+			args: args{
+				head: &ListNode{Val: 1},
+			},
+			has: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			_, has := HasCycle(tt.args.head)
+			if has != tt.has {
+				t.Errorf("HasCycle() got = %v, want %v", has, tt.has)
+			}
+		})
+	}
+}

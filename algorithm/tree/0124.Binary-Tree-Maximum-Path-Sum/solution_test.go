@@ -17,14 +17,14 @@ func Test_maxPathSum(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				algorithm.NewBinaryTreeByArgs("1", "2", "3"),
+				algorithm.NewBinaryTreeByArgs(1, 2, 3),
 			},
 			want: 6,
 		},
 		{
 			name: "testcase 2",
 			args: args{
-				algorithm.NewBinaryTreeByArgs("-10", "9", "20", "null", "null", "15", "7"),
+				algorithm.NewBinaryTreeByArgs(-10, 9, 20, algorithm.NULL, algorithm.NULL, 15, 7),
 			},
 			want: 42,
 		},

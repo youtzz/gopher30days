@@ -1,7 +1,7 @@
 package problem0104
 
 import (
-	. "github.com/sevenger/gopher30days/algorithm"
+	"github.com/sevenger/gopher30days/algorithm"
 	"testing"
 )
 
@@ -17,7 +17,7 @@ func Test_maxDepth(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				NewBinaryTreeByArgs("3", "9", "20", "nil", "nil", "15", "7"),
+				algorithm.NewBinaryTreeByArgs(3, 9, 20, algorithm.NULL, algorithm.NULL, 15, 7),
 			},
 			want: 3,
 		},
@@ -43,7 +43,7 @@ func Test_maxDepth_bfs(t *testing.T) {
 		{
 			name: "testcase 1",
 			args: args{
-				NewBinaryTreeByArgs("3", "9", "20", "nil", "nil", "15", "7"),
+				algorithm.NewBinaryTreeByArgs(3, 9, 20, algorithm.NULL, algorithm.NULL, 15, 7),
 			},
 			want: 3,
 		},

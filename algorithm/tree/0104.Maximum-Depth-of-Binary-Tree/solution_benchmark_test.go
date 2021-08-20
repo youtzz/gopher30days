@@ -6,7 +6,7 @@ import (
 )
 
 func BenchmarkMaxDepth_bfs(b *testing.B) {
-	tree := algorithm.NewBinaryTreeByArgs("3", "9", "20", "nil", "nil", "15", "7")
+	tree := algorithm.NewBinaryTreeByArgs(3, 9, 20, algorithm.NULL, algorithm.NULL, 15, 7)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		maxDepth_bfs(tree)
@@ -14,7 +14,7 @@ func BenchmarkMaxDepth_bfs(b *testing.B) {
 }
 
 func BenchmarkMaxDepth(b *testing.B) {
-	tree := algorithm.NewBinaryTreeByArgs("3", "9", "20", "nil", "nil", "15", "7")
+	tree := algorithm.NewBinaryTreeByArgs(3, 9, 20, algorithm.NULL, algorithm.NULL, 15, 7)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		maxDepth(tree)

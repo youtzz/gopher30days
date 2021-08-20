@@ -1,0 +1,10 @@
+package problemxxxx
+
+# for import
+import "github.com/sevenger/gopher30days/algorithm"
+
+# for linkedlist
+type ListNode = algorithm.ListNode
+
+# for tree
+type TreeNode = alogrithm.TreeNode

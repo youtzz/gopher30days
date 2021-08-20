@@ -17,14 +17,14 @@ func Test_isBalanced(t *testing.T) {
 		{
 			name: "Test_isBalanced 1",
 			args: args{
-				algorithm.NewBinaryTreeByArgs("3", "9", "20", "null", "null", "15", "7"),
+				algorithm.NewBinaryTreeByArgs(3, 9, 20, algorithm.NULL, algorithm.NULL, 15, 7),
 			},
 			want: true,
 		},
 		{
 			name: "Test_isBalanced 2",
 			args: args{
-				algorithm.NewBinaryTreeByArgs("1", "2", "2", "3", "3", "null", "null", "4", "4"),
+				algorithm.NewBinaryTreeByArgs(1, 2, 2, 3, 3, algorithm.NULL, algorithm.NULL, 4, 4),
 			},
 			want: false,
 		},
@@ -57,14 +57,14 @@ func Test_isBalanced_best(t *testing.T) {
 		{
 			name: "Test_isBalanced_best 1",
 			args: args{
-				algorithm.NewBinaryTreeByArgs("3", "9", "20", "null", "null", "15", "7"),
+				algorithm.NewBinaryTreeByArgs(3, 9, 20, algorithm.NULL, algorithm.NULL, 15, 7),
 			},
 			want: true,
 		},
 		{
 			name: "Test_isBalanced_best 2",
 			args: args{
-				algorithm.NewBinaryTreeByArgs("1", "2", "2", "3", "3", "null", "null", "4", "4"),
+				algorithm.NewBinaryTreeByArgs(1, 2, 2, 3, 3, algorithm.NULL, algorithm.NULL, 4, 4),
 			},
 			want: false,
 		},

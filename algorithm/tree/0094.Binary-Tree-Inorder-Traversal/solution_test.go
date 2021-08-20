@@ -18,7 +18,7 @@ var tests = []struct {
 	{
 		name: "testcase 1",
 		args: args{
-			root: algorithm.NewBinaryTreeByArgs("1", "nil", "2", "3"),
+			root: algorithm.NewBinaryTreeByArgs(1, algorithm.NULL, 2, 3),
 		},
 		want: []int{1, 3, 2},
 	},
@@ -32,21 +32,21 @@ var tests = []struct {
 	{
 		name: "testcase 3",
 		args: args{
-			root: algorithm.NewBinaryTreeByArgs("1"),
+			root: algorithm.NewBinaryTreeByArgs(1),
 		},
 		want: []int{1},
 	},
 	{
 		name: "testcase 4",
 		args: args{
-			root: algorithm.NewBinaryTreeByArgs("1", "2"),
+			root: algorithm.NewBinaryTreeByArgs(1, 2),
 		},
 		want: []int{2, 1},
 	},
 	{
 		name: "testcase 5",
 		args: args{
-			root: algorithm.NewBinaryTreeByArgs("1", "nil", "2"),
+			root: algorithm.NewBinaryTreeByArgs(1, algorithm.NULL, 2),
 		},
 		want: []int{1, 2},
 	},

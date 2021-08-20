@@ -17,13 +17,13 @@ func Test_minDepth(t *testing.T) {
 		{
 			name: "Test_minDepth 1",
 			args: args{
-				algorithm.NewBinaryTreeByArgs("3", "9", "20", "null", "null", "15", "7"),
+				algorithm.NewBinaryTreeByArgs(3, 9, 20, algorithm.NULL, algorithm.NULL, 15, 7),
 			},
 			want: 2,
 		}, {
 			name: "Test_minDepth 2",
 			args: args{
-				algorithm.NewBinaryTreeByArgs("2", "null", "3", "null", "4", "null", "5", "null", "6"),
+				algorithm.NewBinaryTreeByArgs(2, algorithm.NULL, 3, algorithm.NULL, 4, algorithm.NULL, 5, algorithm.NULL, 6),
 			},
 			want: 5,
 		},
@@ -49,13 +49,13 @@ func Test_minDepth_DFS(t *testing.T) {
 		{
 			name: "Test_minDepth 1",
 			args: args{
-				algorithm.NewBinaryTreeByArgs("3", "9", "20", "null", "null", "15", "7"),
+				algorithm.NewBinaryTreeByArgs(3, 9, 20, algorithm.NULL, algorithm.NULL, 15, 7),
 			},
 			want: 2,
 		}, {
 			name: "Test_minDepth 2",
 			args: args{
-				algorithm.NewBinaryTreeByArgs("2", "null", "3", "null", "4", "null", "5", "null", "6"),
+				algorithm.NewBinaryTreeByArgs(2, algorithm.NULL, 3, algorithm.NULL, 4, algorithm.NULL, 5, algorithm.NULL, 6),
 			},
 			want: 5,
 		},
