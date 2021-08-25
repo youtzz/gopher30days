@@ -638,3 +638,32 @@ func TestHasCycle(t *testing.T) {
 		})
 	}
 }
+
+func TestJoinLinkedList(t *testing.T) {
+	type args struct {
+		head *ListNode
+		next *ListNode
+	}
+	tests := []struct {
+		name string
+		args args
+		want *ListNode
+	}{
+		{
+			name: "testcase 1",
+			args: args{
+				head: NewLinkedListByArgs(1, 2, 3),
+				next: NewLinkedListByArgs(4, 5, 6),
+			},
+			want: NewLinkedListByArgs(1, 2, 3, 4, 5, 6),
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			JoinLinkedList(tt.args.head, tt.args.next)
+			if !reflect.DeepEqual(tt.args.head, tt.want) {
+				t.Errorf("JoinLinkedList() got = %v, want %v", tt.args.head, tt.want)
+			}
+		})
+	}
+}

@@ -129,6 +129,17 @@ func GetFormatLinkedListString(head *ListNode) string {
 	return sb.String()
 }
 
+// JoinLinkedList 拼接两条链表
+func JoinLinkedList(head *ListNode, next *ListNode) {
+	for head != nil {
+		if head.Next == nil {
+			head.Next = next
+			break
+		}
+		head = head.Next
+	}
+}
+
 // -----------------------------------树-----------------------------------
 
 type Tree = TreeNode
