@@ -13,3 +13,20 @@ func majorityElement(nums []int) int {
 	}
 	return ans
 }
+
+func majorityElement2(nums []int) int {
+	ans := nums[0]
+	life := 1
+	for i := 1; i < len(nums); i++ {
+		if nums[i] == ans {
+			life++
+		} else {
+			life--
+		}
+		if life == 0 {
+			ans = nums[i]
+			life = 1
+		}
+	}
+	return ans
+}
