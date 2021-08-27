@@ -131,7 +131,7 @@ func Test_NewMatrix(t *testing.T) {
 	}
 }
 
-func TestNewMatrixByRowLen(t *testing.T) {
+func Test_NewMatrixByRowLen(t *testing.T) {
 	type args struct {
 		rowLen int
 		args   []int
@@ -165,7 +165,7 @@ func TestNewMatrixByRowLen(t *testing.T) {
 	}
 }
 
-func TestNewBinaryTree(t *testing.T) {
+func Test_NewBinaryTree(t *testing.T) {
 	type args struct {
 		source []int
 	}
@@ -234,7 +234,7 @@ func TestNewBinaryTree(t *testing.T) {
 	}
 }
 
-func TestCompareBinaryTree(t *testing.T) {
+func Test_CompareBinaryTree(t *testing.T) {
 	type args struct {
 		root1 *TreeNode
 		root2 *TreeNode
@@ -290,7 +290,7 @@ func TestCompareBinaryTree(t *testing.T) {
 	}
 }
 
-func TestPrintTree(t *testing.T) {
+func Test_PrintTree(t *testing.T) {
 	type args struct {
 		root *TreeNode
 	}
@@ -318,7 +318,7 @@ func TestPrintTree(t *testing.T) {
 	}
 }
 
-func TestPreOrder(t *testing.T) {
+func Test_PreOrder(t *testing.T) {
 	type args struct {
 		root *TreeNode
 	}
@@ -344,7 +344,7 @@ func TestPreOrder(t *testing.T) {
 	}
 }
 
-func TestPreOrderRecursive(t *testing.T) {
+func Test_PreOrderRecursive(t *testing.T) {
 	type args struct {
 		root *TreeNode
 	}
@@ -372,7 +372,7 @@ func TestPreOrderRecursive(t *testing.T) {
 	}
 }
 
-func TestInOrder(t *testing.T) {
+func Test_InOrder(t *testing.T) {
 	type args struct {
 		root *TreeNode
 	}
@@ -398,7 +398,7 @@ func TestInOrder(t *testing.T) {
 	}
 }
 
-func TestPostOrder(t *testing.T) {
+func Test_PostOrder(t *testing.T) {
 	type args struct {
 		root *TreeNode
 	}
@@ -431,7 +431,7 @@ func TestPostOrder(t *testing.T) {
 	}
 }
 
-func TestDfs(t *testing.T) {
+func Test_Dfs(t *testing.T) {
 	type args struct {
 		root *TreeNode
 	}
@@ -457,7 +457,7 @@ func TestDfs(t *testing.T) {
 	}
 }
 
-func TestDfs_divideAndConquer(t *testing.T) {
+func Test_Dfs_divideAndConquer(t *testing.T) {
 	type args struct {
 		root *TreeNode
 	}
@@ -483,7 +483,7 @@ func TestDfs_divideAndConquer(t *testing.T) {
 	}
 }
 
-func TestMergeSort(t *testing.T) {
+func Test_MergeSort(t *testing.T) {
 	type args struct {
 		arr []int
 	}
@@ -509,7 +509,7 @@ func TestMergeSort(t *testing.T) {
 	}
 }
 
-func TestQuickSort(t *testing.T) {
+func Test_QuickSort(t *testing.T) {
 	type args struct {
 		arr []int
 	}
@@ -535,7 +535,7 @@ func TestQuickSort(t *testing.T) {
 	}
 }
 
-func TestNewCycleLinedList(t *testing.T) {
+func Test_NewCycleLinedList(t *testing.T) {
 	type args struct {
 		arr []int
 		pos int
@@ -588,7 +588,7 @@ func TestNewCycleLinedList(t *testing.T) {
 	}
 }
 
-func TestHasCycle(t *testing.T) {
+func Test_HasCycle(t *testing.T) {
 	type args struct {
 		head *ListNode
 	}
@@ -639,7 +639,7 @@ func TestHasCycle(t *testing.T) {
 	}
 }
 
-func TestJoinLinkedList(t *testing.T) {
+func Test_JoinLinkedList(t *testing.T) {
 	type args struct {
 		head *ListNode
 		next *ListNode
